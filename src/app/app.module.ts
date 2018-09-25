@@ -11,13 +11,17 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddOrderComponent } from './add-order/add-order.component';
+import { ToolBarModule } from '@progress/kendo-angular-toolbar';
+import {AddItemsComponent} from './add-items/add-items.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     AppNavComponent,
     DashboardComponent,
-    AddOrderComponent
+    AddOrderComponent,
+    AddItemsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,8 @@ import { AddOrderComponent } from './add-order/add-order.component';
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    ToolBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

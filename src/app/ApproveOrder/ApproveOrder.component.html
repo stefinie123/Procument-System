@@ -1,0 +1,32 @@
+<section class="mat-typography">
+  <div class="grid-container">
+    <h1 class="mat-h1"> Approve Orders </h1>
+  </div>
+
+  <div class="listContainer">
+    <ul class="list-group">
+      <li class="list-group-item">
+      </li>
+    </ul>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <td>IT Number</td>
+      <td> name </td>
+      <td colspan="2">Actions</td>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let adunit of internships">
+      <td>{{ adunit.ITNo }}</td>
+      <td>{{ adunit.name }}</td>
+      <td><a [routerLink]="['/edit', adunit._id]" class="btn btn-primary">Edit</a></td>
+      <td><a [routerLink]="" class="btn btn-danger">Delete</a></td>
+    </tr>
+    </tbody>
+  </table>
+
+</section>
