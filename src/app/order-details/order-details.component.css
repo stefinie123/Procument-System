@@ -10,12 +10,6 @@
   bottom: 15px;
 }
 
-.more-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-}
-
 .dashboard-card-content {
   text-align: center;
 }
@@ -23,35 +17,26 @@
   text-decoration: none;
   color: whitesmoke;
 }
-.ico{
-  padding: 10px;
-}
-.my-form{
-  color: whitesmoke;
-}
 
-.btn{
-  margin-top: 25px;
-  margin-bottom: 25px;
-}
 .mat-h1{
   text-align: center;
 }
 
-.unit{
-  width: 20px;
+mat-label{
+  padding-right: 20px;
+  padding-bottom: 30px;
+  font-size: 20px;
+}
+table {
+  width: 100%;
 }
 
-table{
-  margin: auto;
+table th{
+  font-size: 16px;
+  text-align: center;
 }
-table td{
-  padding: 10px;
-}
-mat-label{
-  font-size: 20px;
-  padding: 15px;
-}
-mat-option{
-  color: whitesmoke;
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
 }

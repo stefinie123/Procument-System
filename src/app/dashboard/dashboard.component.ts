@@ -13,7 +13,7 @@ export class DashboardComponent {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Add Order', cols: 1, rows: 1, content: 'Add Order' },
+          { title: 'Add Order', cols: 1, rows: 1, content: 'Add Order',  path: '/add-order' },
           { title: 'Card 2', cols: 1, rows: 1,  content: 'View Previous Orders' },
           { title: 'Card 3', cols: 1, rows: 1 , content: 'My Notifications'},
           { title: 'Card 4', cols: 1, rows: 1, content: 'Approved Orders' }
@@ -21,8 +21,8 @@ export class DashboardComponent {
       }
 
       return [
-        { title: 'Add Order', cols: 1, rows: 1, content: 'Add Order' },
-        { title: 'Card 2', cols: 1, rows: 1 , content: 'View Previous Orders'},
+        { title: 'Add Order', cols: 1, rows: 1, content: 'Add Order', path: '/add-order' },
+        { title: 'Card 2', cols: 1, rows: 1 , content: 'View Previous Orders', path: '/order-list'},
         { title: 'Card 3', cols: 1, rows: 1 , content: 'My Notifications'},
         { title: 'Card 4', cols: 1, rows: 1 , content: 'Approved Orders'}
       ];

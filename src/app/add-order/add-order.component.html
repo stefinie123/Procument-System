@@ -1,10 +1,48 @@
 <div class="grid-container">
-  <h1 class="mat-h1">Add Orders</h1>
-  <mat-grid-list cols="1" rowHeight="500px">
+  <h1 class="mat-h1">Add My Order</h1>
+  <mat-grid-list cols="1" rowHeight="700px">
       <mat-card class="dashboard-card">
         <mat-card-content class="dashboard-card-content">
           <div>
-            <p>Orders Form</p>
+            <form class="my-form">
+              <table>
+                <tr>
+                  <td><mat-label>Item </mat-label></td>
+                  <td><mat-label>Quantity</mat-label></td>
+                  <td style="width:20px"><mat-label>Units</mat-label></td>
+                </tr>
+                <tr>
+                  <td>
+                    <mat-form-field>
+                      <mat-select placeholder="Select Item" [(value)]="name">
+                        <mat-option *ngFor="let item of itemCatlog" [value]="item.name">
+                          {{item.name}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </td>
+                  <td>
+                    <mat-form-field>
+                      <input matInput placeholder="Qty" type="number" name="quantity" [(ngModel)]="qty">
+                    </mat-form-field>
+                  </td>
+                  <td style="width:20px">
+                    <mat-form-field style="width:60px">
+                      <mat-select placeholder="Unit" [(value)]="unit">
+                        <mat-option *ngFor="let unit of units" [value]="unit">
+                          {{unit}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </td>
+                </tr>
+              </table>
+            </form>
+            <button class="btn" mat-stroked-button (click)="onAdd()"><mat-icon aria-label="add icon" class="ico">add_circle</mat-icon>Add</button>
+          </div>
+          <app-item-list [items]="items" [total]="total"></app-item-list>
+          <div *ngIf="items.length !== 0">
+            <button class="btn" mat-stroked-button (click)="onPlace()">Place Order</button>
           </div>
         </mat-card-content>
       </mat-card>

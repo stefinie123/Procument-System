@@ -1,0 +1,27 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Add Items</h1>
+  <mat-grid-list cols="1" rowHeight="700px">
+    <mat-card class="dashboard-card">
+      <mat-card-content class="dashboard-card-content">
+        <div>
+          <form class="my-form">
+           <mat-label>Item Name</mat-label> <span>
+            <mat-form-field style="width:235px">
+              <input matInput placeholder="Item Name">
+            </mat-form-field>
+          </span>
+            <br/>
+            <mat-label>Unit Price</mat-label> <span>
+            <mat-form-field>
+              <input matInput placeholder="Amount" type="number" class="example-right-align">
+              <span matPrefix>Rs.&nbsp;</span>
+              <span matSuffix>.00</span>
+            </mat-form-field>
+          </span>
+            <br/>
+          </form>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-list>
+</div>
