@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatSnackBar} from '@angular/material';
 import {FormControl} from '@angular/forms';
 import {Item} from '../item';
 import { Order} from '../order';
@@ -27,7 +28,7 @@ export class AddOrderComponent implements OnInit {
   units: string[] = ['Kg', 'Cube', 'Metres'];
   date: Date;
 
-  constructor(private itemService: ItemsService, private orderService: OrderService) {
+  constructor(private itemService: ItemsService, private orderService: OrderService, public snackBar: MatSnackBar) {
     this.item = {
       name: '',
       price: 0,
@@ -55,6 +56,13 @@ export class AddOrderComponent implements OnInit {
     };
   }
 
+  openSnackBar() {
+    this.snackBar.open('Order Placed Successfully', 'X', {
+      duration: 5000,
+    });
+  }
+
+
   onAdd(): void{
     console.log(this.itemCatlog);
     console.log(this.item);
@@ -81,7 +89,8 @@ export class AddOrderComponent implements OnInit {
   }
 
   getSeqRef(): string {
-    return 'P' + Math.random().toString(36).substr(2, 9);
+    let ref = 'P' + Math.random().toString(36).substr(2, 9);
+    return ref.toUpperCase();
   }
 
   onPlace(): void {
@@ -105,6 +114,9 @@ export class AddOrderComponent implements OnInit {
     };
     console.log(this.order);
     this.placeOrder(this.order);
+    this.name = '';
+    this.qty = 0;
+    this.items = [];
   }
 
   calcTotal(): void{
@@ -122,7 +134,10 @@ export class AddOrderComponent implements OnInit {
   }
 
   placeOrder(order: Order): void{
-    this.orderService.addOrder(order).subscribe(() => alert('Order has been placed'));
+    this.orderService.addOrder(order).subscribe(data => {
+      console.log(data);
+      this.openSnackBar();
+    });
   }
   ngOnInit() {
     this.getItemsCatalog();

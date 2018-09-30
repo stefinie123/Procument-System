@@ -5,13 +5,9 @@
         <mat-card-content class="dashboard-card-content">
           <div>
             <form class="my-form">
-              <table>
+              <table class="mat-table">
                 <tr>
                   <td><mat-label>Item </mat-label></td>
-                  <td><mat-label>Quantity</mat-label></td>
-                  <td style="width:20px"><mat-label>Units</mat-label></td>
-                </tr>
-                <tr>
                   <td>
                     <mat-form-field>
                       <mat-select placeholder="Select Item" [(value)]="name">
@@ -21,13 +17,19 @@
                       </mat-select>
                     </mat-form-field>
                   </td>
+                </tr>
+                <tr>
+                  <td><mat-label>Quantity</mat-label></td>
                   <td>
                     <mat-form-field>
                       <input matInput placeholder="Qty" type="number" name="quantity" [(ngModel)]="qty">
                     </mat-form-field>
                   </td>
+                </tr>
+                <tr>
+                  <td style="width:20px"><mat-label>Units</mat-label></td>
                   <td style="width:20px">
-                    <mat-form-field style="width:60px">
+                    <mat-form-field>
                       <mat-select placeholder="Unit" [(value)]="unit">
                         <mat-option *ngFor="let unit of units" [value]="unit">
                           {{unit}}
