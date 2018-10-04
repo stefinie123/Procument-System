@@ -21,6 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { OrderListComponent } from './order-list/order-list.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { AddItemComponent } from './add-item/add-item.component';
+import { RejectedOrderComponent } from './rejected-order/rejected-order.component';
+import { PendingOrdersComponent } from './pending-orders/pending-orders.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { AddItemComponent } from './add-item/add-item.component';
     ItemListComponent,
     OrderListComponent,
     OrderDetailsComponent,
-    AddItemComponent
+    AddItemComponent,
+    RejectedOrderComponent,
+    PendingOrdersComponent,
+   
   ],
   imports: [
     BrowserModule,
