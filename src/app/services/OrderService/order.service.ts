@@ -37,21 +37,42 @@ export class OrderService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get<Order>(url).pipe(
       tap(order => console.log(order)),
-      catchError(this.handleError<Order>(`getHero id=${id}`))
+      catchError(this.handleError<Order>(`get id=${id}`))
+    );
+  }
+
+  getByManagerId(id: number): Observable<Order[]> {
+    return this.http.get<Order[]>('/api/managers/' + id.toString() + '/orders').pipe(
+      tap(orders => console.log(orders)),
+      catchError(this.handleError<Order[]>(`getOrderByManagerId id=${id}`))
+    );
+  }
+
+  unapprovedOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>(this.apiUrl + '/unapproved').pipe(
+      tap(orders => console.log(orders)),
+      catchError(this.handleError<Order[]>(`getUnapprovedOrders`, []))
+    );
+  }
+
+  approveOrder (id: number): Observable<{}> {
+    return this.http.put<{}>(this.apiUrl + '/' + id.toString() + '/approveOrder', httpOptions).pipe(
+      tap(() => console.log(`added oder `)),
+      catchError(this.handleError('addOrder'))
     );
   }
 
   private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
+      return (error: any): Observable<T> => {
 
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
+        // TODO: send the error to remote logging infrastructure
+        console.error(error); // log to console instead
 
-      // TODO: better job of transforming error for user consumption
-      console.log(`${operation} failed: ${error.message}`);
+        // TODO: better job of transforming error for user consumption
+        console.log(`${operation} failed: ${error.message}`);
 
-      //  Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
-  }
+        //  Let the app keep running by returning an empty result.
+        return of(result as T);
+      };
+    }
 }
