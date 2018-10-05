@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { OrderListComponent } from './order-list/order-list.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { AddItemComponent } from './add-item/add-item.component';
+import { AddSupplierComponent } from './add-supplier/add-supplier.component';
+import { LoginComponent } from './login/login.component';
+import { ApproveOrderComponent } from './approve-order/approve-order.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { AddItemComponent } from './add-item/add-item.component';
     ItemListComponent,
     OrderListComponent,
     OrderDetailsComponent,
-    AddItemComponent
+    AddItemComponent,
+    AddSupplierComponent,
+    LoginComponent,
+    ApproveOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +76,8 @@ import { AddItemComponent } from './add-item/add-item.component';
     MatProgressSpinnerModule,
     MatInputModule,
     MatPaginatorModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

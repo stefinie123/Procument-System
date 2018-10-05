@@ -5,21 +5,40 @@
       <mat-card-content class="dashboard-card-content">
         <div>
           <form class="my-form">
-           <mat-label>Item Name</mat-label> <span>
-            <mat-form-field style="width:235px">
-              <input matInput placeholder="Item Name">
-            </mat-form-field>
-          </span>
-            <br/>
-            <mat-label>Unit Price</mat-label> <span>
-            <mat-form-field>
-              <input matInput placeholder="Amount" type="number" class="example-right-align">
-              <span matPrefix>Rs.&nbsp;</span>
-              <span matSuffix>.00</span>
-            </mat-form-field>
-          </span>
-            <br/>
+            <table class="mat-table">
+              <tr>
+                <td><mat-label>Item <span>Name</span></mat-label></td>
+                <td>
+                  <mat-form-field>
+                    <input matInput placeholder="Item Name" [(ngModel)]="name" name="item_name" required>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td><mat-label>Unit Price</mat-label></td>
+                <td>
+                  <mat-form-field>
+                    <input matInput placeholder="Amount" type="number" class="example-right-align" [(ngModel)]="price" name="amount" required>
+                    <span matPrefix>Rs.&nbsp;</span>
+                    <span matSuffix>.00</span>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td style="width:20px"><mat-label>Category</mat-label></td>
+                <td style="width:20px">
+                  <mat-form-field>
+                    <mat-select placeholder="category" [(value)]="category" required>
+                      <mat-option *ngFor="let cat of categories" [value]="cat">
+                        {{cat}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
           </form>
+          <button class="btn" mat-stroked-button (click)="onAdd()"><mat-icon aria-label="add icon" class="ico">add_circle</mat-icon>Add</button>
         </div>
       </mat-card-content>
     </mat-card>

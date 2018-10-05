@@ -4,9 +4,10 @@ import { Observable, of} from 'rxjs';
 import { catchError, map, tap} from 'rxjs/operators';
 
 import { ItemCatalog} from '../../itemCatalog';
+import {Order} from '../../order';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'})
+  headers: new HttpHeaders({ 'Content-Type': 'application/json'})
 };
 
 const httpOptions2 = {
@@ -22,18 +23,26 @@ const httpOptions2 = {
 })
 export class ItemsService {
 
-  private itemsURL = '/api/catalogue/list'; // URL for the backend service
+  private itemsURL = '/api/catalogue'; // URL for the backend service
 
   constructor(private http: HttpClient) { }
 
   /** GET items catalogue from the server */
   getItems (): Observable<ItemCatalog[]> {
-    return this.http.get<ItemCatalog[]>(this.itemsURL)
+    return this.http.get<ItemCatalog[]>(this.itemsURL + '/list')
       .pipe(
         tap(items => console.log('fetched items')),
         catchError(this.handleError('getItems', []))
       );
   }
+
+  addItem (item: ItemCatalog): Observable<{}> {
+    return this.http.post<Order>(this.itemsURL + '/addItem', item, httpOptions).pipe(
+      tap(() => console.log(`Added Item `)),
+      catchError(this.handleError('addItem'))
+    );
+  }
+
 
   /**
    * Handle Http operation that failed.

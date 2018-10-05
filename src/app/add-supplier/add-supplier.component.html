@@ -1,0 +1,51 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Supplier Details</h1>
+  <mat-grid-list cols="1" rowHeight="700px">
+    <mat-card class="dashboard-card">
+      <mat-card-content class="dashboard-card-content">
+        <div>
+          <form class="my-form">
+            <table class="mat-table">
+              <tr>
+                <td><mat-label>Supplier Name</mat-label></td>
+                <td>
+                  <mat-form-field>
+                    <input matInput placeholder="name" [(ngModel)]= "supplier.name" name="sup_name" required>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td><mat-label>Contact No </mat-label></td>
+                <td>
+                  <mat-form-field>
+                    <input matInput placeholder="Enter contact no." [(ngModel)]= "supplier.phone" name ="phone" [formControl]="phone" required>
+                    <mat-error *ngIf="phone.invalid">{{getMobileErrorMessage()}}</mat-error>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td><mat-label>Email</mat-label></td>
+                <td>
+                  <mat-form-field>
+                    <input matInput placeholder="Enter your email" [(ngModel)]= "supplier.email" name = "mail" [formControl]="email" required>
+                    <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td><mat-label>Address</mat-label></td>
+                <td>
+                  <mat-form-field>
+                    <textarea matInput placeholder="Enter supplier address" required [(ngModel)]="supplier.address" name="address"></textarea>
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <button class="btn" mat-stroked-button (click)="addSup()"><mat-icon aria-label="add icon" class="ico">add_circle</mat-icon>Add</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-list>
+</div>
+

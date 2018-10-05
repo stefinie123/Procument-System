@@ -1,5 +1,5 @@
 .grid-container {
-  margin: 20px;
+  margin: 25px;
 }
 
 .dashboard-card {
@@ -22,5 +22,33 @@
 .dashboard-card-content a{
   text-decoration: none;
 }
+.ico{
+  padding: 10px;
+}
+.my-form{
+}
 
+.btn{
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.mat-h1{
+  text-align: center;
+}
 
+.unit{
+  width: 20px;
+}
+
+table{
+  margin: auto;
+}
+table td{
+  padding: 10px;
+}
+mat-label{
+  font-size: 20px;
+  padding: 15px;
+}
+mat-option{
+}
