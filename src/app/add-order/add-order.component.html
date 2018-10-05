@@ -10,7 +10,7 @@
                   <td><mat-label>Item </mat-label></td>
                   <td>
                     <mat-form-field>
-                      <mat-select placeholder="Select Item" [(value)]="name">
+                      <mat-select placeholder="Select Item" [(value)]="name" required>
                         <mat-option *ngFor="let item of itemCatlog" [value]="item.name">
                           {{item.name}}
                         </mat-option>
@@ -22,7 +22,7 @@
                   <td><mat-label>Quantity</mat-label></td>
                   <td>
                     <mat-form-field>
-                      <input matInput placeholder="Qty" type="number" name="quantity" [(ngModel)]="qty">
+                      <input matInput placeholder="Qty" type="number" name="quantity" [(ngModel)]="qty" required>
                     </mat-form-field>
                   </td>
                 </tr>
@@ -50,4 +50,7 @@
       </mat-card>
   </mat-grid-list>
 </div>
+
+
+
 

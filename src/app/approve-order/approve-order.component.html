@@ -35,7 +35,7 @@
 
           <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef></th>
-            <td mat-cell *matCellDef="let element"><a routerLink="/detail/{{element.id}}"><button class="btn" mat-stroked-button ><mat-icon aria-label="view icon" class="ico">info</mat-icon>View Details</button></a></td>
+            <td mat-cell *matCellDef="let element"><button class="btn" mat-stroked-button (click)="approveOrder(element.id)"><mat-icon aria-label="view icon" class="ico">check_circle</mat-icon>Approve Order</button></td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -45,4 +45,3 @@
     </mat-card>
   </mat-grid-list>
 </div>
-

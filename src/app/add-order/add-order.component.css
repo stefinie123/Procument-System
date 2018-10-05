@@ -21,13 +21,11 @@
 }
 .dashboard-card-content a{
   text-decoration: none;
-  color: whitesmoke;
 }
 .ico{
   padding: 10px;
 }
 .my-form{
-  color: whitesmoke;
 }
 
 .btn{
@@ -53,5 +51,4 @@ mat-label{
   padding: 15px;
 }
 mat-option{
-  color: whitesmoke;
 }
