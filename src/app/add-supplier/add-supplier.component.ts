@@ -20,6 +20,7 @@ export class AddSupplierComponent implements OnInit {
   address: String;
   supplier: Supplier;
 
+  //loading the constructor
 
   constructor(private supplierService: SupplierService, public snackBar: MatSnackBar) {
     this.name = '';
@@ -36,6 +37,7 @@ export class AddSupplierComponent implements OnInit {
 
   }
 
+  //implementations of the fucntions
   openSnackBar(msg: string) {
     this.snackBar.open(msg, 'X', {
       duration: 5000,
