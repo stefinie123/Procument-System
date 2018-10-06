@@ -9,7 +9,8 @@ import { OrderService} from '../services/OrderService/order.service';
   styleUrls: ['./order-list.component.css']
 })
 export class OrderListComponent implements OnInit {
-
+//created a variable to hold the all  orders from the end point in the purchaseOrder controller http://localhost/8080/orders
+ 
   orders: Order[];
 
   displayedColumns: string[] = ['id', 'order_status', 'order_date', 'total', 'action'];
