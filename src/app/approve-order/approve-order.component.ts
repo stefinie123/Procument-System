@@ -10,7 +10,8 @@ import {MatSnackBar} from '@angular/material';
   styleUrls: ['./approve-order.component.css']
 })
 export class ApproveOrderComponent implements OnInit {
-
+//created a variable to hold the all unapproved orders from the end point in the purchaseOrder controller http://localhost/8080/orders/unapproved.
+  //it returns set of unapproved orders
   orders: Order[];
 
   displayedColumns: string[] = ['id', 'order_status', 'order_date', 'total', 'action'];
