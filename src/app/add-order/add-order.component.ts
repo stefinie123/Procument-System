@@ -13,6 +13,7 @@ import { OrderService} from '../services/OrderService/order.service';
   templateUrl: './add-order.component.html',
   styleUrls: ['./add-order.component.css']
 })
+
 export class AddOrderComponent implements OnInit {
 
   item: Item;
@@ -27,7 +28,7 @@ export class AddOrderComponent implements OnInit {
   index: number;
   units: string[] = ['Kg', 'Cube', 'Metres'];
   date: Date;
-
+//constructor of add order.it holds all the data which should have pass to the backend
   constructor(private itemService: ItemsService, private orderService: OrderService, public snackBar: MatSnackBar) {
     this.item = {
       name: '',
